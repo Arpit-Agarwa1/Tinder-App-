@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Register.css";
 import { useNavigate } from "react-router-dom";
 // import express from "express";
 export default function Register() {
@@ -31,30 +32,40 @@ export default function Register() {
   }
 
   return (
-    <div>
-      <form action="" onSubmit={handelSubmit}>
+    <div className="register-page">
+      <form className="register-card" onSubmit={handelSubmit}>
+        <h2>Create Account 💖</h2>
+
         <input
           type="text"
           name="username"
-          placeholder="Enter your Username"
+          placeholder="Username"
           value={data.username}
           onChange={handelChange}
         />
+
         <input
           type="email"
           name="email"
-          placeholder="Enter your email"
+          placeholder="Email"
           value={data.email}
           onChange={handelChange}
         />
+
         <input
           type="password"
           name="password"
-          placeholder="Enter your password"
+          placeholder="Password"
           value={data.password}
           onChange={handelChange}
         />
+
         <button type="submit">Register</button>
+
+        <p className="login-text">
+          Already have an account?{" "}
+          <span onClick={() => navigate("/login")}>Login</span>
+        </p>
       </form>
     </div>
   );
