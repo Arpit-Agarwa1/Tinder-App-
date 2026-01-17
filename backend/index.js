@@ -19,7 +19,7 @@ import userRoutes from "./routes/userRoutes.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 const corsOptions = {
-  origin: "http://localhost:5173", // Frontend URL
+  origin: process.env.FRONTEND_URL, // Frontend URL
   credentials: true,
 };
 

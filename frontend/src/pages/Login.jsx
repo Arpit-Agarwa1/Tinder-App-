@@ -82,9 +82,13 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3000/user/signin", data, {
-        withCredentials: true,
-      });
+      await axios.post(
+        import.meta.env.VITE_BACKEND_URL + "/user/signin",
+        data,
+        {
+          withCredentials: true,
+        }
+      );
       setIsLoggedIn(true);
       navigate("/home");
     } catch (error) {

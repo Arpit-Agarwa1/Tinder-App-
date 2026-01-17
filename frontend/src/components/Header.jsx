@@ -43,7 +43,7 @@ export default function Header() {
     if (isLoggedIn) {
       try {
         await axios.post(
-          "http://localhost:3000/user/logout",
+          import.meta.env.VITE_BACKEND_URL + "/user/logout",
           {},
           { withCredentials: true }
         );

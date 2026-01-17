@@ -150,9 +150,12 @@ export default function Profile() {
 
   async function getProfileData() {
     try {
-      const response = await axios.get("http://localhost:3000/user/profile", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        import.meta.env.VITE_BACKEND_URL + "/user/profile",
+        {
+          withCredentials: true,
+        }
+      );
 
       setData({
         name: response.data.name || "",
@@ -175,9 +178,13 @@ export default function Profile() {
   async function handelSubmit(e) {
     e.preventDefault();
     try {
-      await axios.put("http://localhost:3000/user/profile", data, {
-        withCredentials: true,
-      });
+      await axios.put(
+        import.meta.env.VITE_BACKEND_URL + "/user/profile",
+        data,
+        {
+          withCredentials: true,
+        }
+      );
       alert("Profile saved successfully ❤️");
     } catch (error) {
       alert("Something went wrong");

@@ -21,7 +21,10 @@ export default function Register() {
     e.preventDefault();
     try {
       // console.log("axios se phele");
-      const res = await axios.post("http://localhost:3000/user/register", data);
+      const res = await axios.post(
+        import.meta.env.VITE_BACKEND_URL + "/user/register",
+        data
+      );
       console.log(res.data);
       alert("User registered successfully");
     } catch (error) {

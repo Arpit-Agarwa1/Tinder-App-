@@ -14,9 +14,12 @@ export default function ProtectedRoute({ children }) {
 
   async function checkForLogIn() {
     try {
-      const response = await axios.get("http://localhost:3000/user/check", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        import.meta.env.VITE_BACKEND_URL + "/user/check",
+        {
+          withCredentials: true,
+        }
+      );
       console.log(response);
       if (response.status === 200) {
         setIsLoggedIn(true);
